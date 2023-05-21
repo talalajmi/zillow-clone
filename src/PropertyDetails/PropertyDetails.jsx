@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./PropertyDetails.module.css";
 import { Zap } from "react-feather";
 
-const tabs = ["Overview", "Utility", "Facts and Features", "Home Value"];
+const tabs = ["Overview", "Utility", "Facts and Features"];
 
 const PropertyDetails = () => {
   const [activeTab, setActiveTab] = useState(0);
