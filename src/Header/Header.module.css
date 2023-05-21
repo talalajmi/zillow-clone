@@ -1,0 +1,7 @@
+.mobileHeader {
+  @apply lg:hidden flex justify-between items-center p-4 border-b;
+}
+
+.mobileHeader .loginContainer {
+  @apply text-primary/50;
+}

@@ -1,0 +1,15 @@
+.main {
+  @apply flex flex-col gap-4 md:gap-0 md:flex-row;
+}
+
+.imagesContainer {
+  @apply relative flex flex-1 items-center justify-center;
+}
+
+.detailsContainer {
+  @apply flex flex-[3] items-start flex-col gap-3;
+}
+
+.iconsContainer {
+  @apply fixed flex w-full justify-between items-center;
+}
