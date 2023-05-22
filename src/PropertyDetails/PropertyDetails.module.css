@@ -13,3 +13,22 @@
 .iconsContainer {
   @apply fixed flex w-full justify-between items-center;
 }
+
+.expense-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.expense-label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.expense-value {
+  font-weight: bold;
+}
+
+.emoji {
+  margin-left: 5px;
+  font-size: 18px;
+}

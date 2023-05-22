@@ -7,6 +7,7 @@ const tabs = ["Overview", "Utility", "Facts and Features"];
 const PropertyDetails = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [utilityCost, setUtilityCost] = useState(0);
+  const [total, setTotal] = useState(108);
   const [showFullText, setShowFullText] = useState(false);
 
   const year = new Date().getFullYear();
@@ -29,7 +30,10 @@ const PropertyDetails = () => {
 
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setUtilityCost(data["predictions"][0]))
+      .then((data) => {
+        setTotal(total + data["predictions"][0]);
+        setUtilityCost(data["predictions"][0]);
+      })
       .catch((error) => console.error(error));
   };
 
@@ -473,16 +477,71 @@ const PropertyDetails = () => {
             <div className="flex flex-col gap-3">
               <div className="flex justify-between">
                 <p className="font-semibold text-2xl">Utility Cost Analysis</p>
-                <p className="font-semibold text-2xl">
-                  $ {utilityCost.toFixed(2)}
-                </p>
+                <p className="font-semibold text-2xl">$ {total.toFixed(2)}</p>
               </div>
               <div className="flex flex-col gap-2">
-                <li>Electricity: $</li>
-                <li>Water: $</li>
-                <li>Gas: $</li>
-                <li>Sewage: $</li>
-                <li>Carbon Footprint: $</li>
+                <table className="expense-table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span className="emoji">💡</span>
+                      </td>
+                      <td>
+                        <strong>Electricity</strong>
+                      </td>
+                      <td>
+                        <span className="expense-value">
+                          {utilityCost.toFixed(2)} $
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span className="emoji">💧</span>
+                      </td>
+                      <td>
+                        <strong>Water</strong>
+                      </td>
+                      <td>
+                        <span className="expense-value">32.00 $</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span className="emoji">🔥</span>
+                      </td>
+                      <td>
+                        <strong>Gas</strong>
+                      </td>
+                      <td>
+                        <span className="expense-value">55.00 $</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span className="emoji">🚽</span>
+                      </td>
+                      <td>
+                        <strong>Sewage</strong>
+                      </td>
+                      <td>
+                        <span className="expense-value">21.00 $</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span className="emoji">🌍</span>
+                      </td>
+                      <td>
+                        <strong>Carbon Footprint</strong>
+                      </td>
+                      <td>
+                        <span className="expense-value">51</span> metric tons
+                        CO2e/yr
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
                 <div className="flex gap-2 items-center">
                   <Zap color="grey" size={18} />
                   <p className="text-gray-500 text-sm">
