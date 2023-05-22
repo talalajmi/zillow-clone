@@ -7,7 +7,7 @@ const tabs = ["Overview", "Utility", "Facts and Features"];
 const PropertyDetails = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [utilityCost, setUtilityCost] = useState(0);
-  const [total, setTotal] = useState(108);
+  const [total, setTotal] = useState(109.35);
   const [showFullText, setShowFullText] = useState(false);
 
   const year = new Date().getFullYear();
@@ -503,7 +503,7 @@ const PropertyDetails = () => {
                         <strong>Water</strong>
                       </td>
                       <td>
-                        <span className="expense-value">32.00 $</span>
+                        <span className="expense-value">32.72 $</span>
                       </td>
                     </tr>
                     <tr>
@@ -514,7 +514,7 @@ const PropertyDetails = () => {
                         <strong>Gas</strong>
                       </td>
                       <td>
-                        <span className="expense-value">55.00 $</span>
+                        <span className="expense-value">55.17 $</span>
                       </td>
                     </tr>
                     <tr>
@@ -525,7 +525,7 @@ const PropertyDetails = () => {
                         <strong>Sewage</strong>
                       </td>
                       <td>
-                        <span className="expense-value">21.00 $</span>
+                        <span className="expense-value">21.46 $</span>
                       </td>
                     </tr>
                     <tr>
@@ -536,7 +536,7 @@ const PropertyDetails = () => {
                         <strong>Carbon Footprint</strong>
                       </td>
                       <td>
-                        <span className="expense-value">51</span> metric tons
+                        <span className="expense-value">51.24</span> metric tons
                         CO2e/yr
                       </td>
                     </tr>
