@@ -1,34 +1,389 @@
 .main {
-  @apply flex flex-col gap-4 md:gap-0 md:flex-row;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 0;
+  }
 }
 
 .imagesContainer {
-  @apply relative flex flex-1 items-center justify-center;
+  position: relative;
+  flex: 2;
+}
+
+.imageIconsContainer {
+  position: absolute;
+  top: 0;
+  padding: 1rem;
+  z-index: 10;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(#222222, transparent);
+
+  @media (min-width: 768px) {
+    display: none;
+    background-color: transparent;
+  }
+}
+
+.arrowBack {
+  fill: #fff;
+  rotate: 90deg;
+}
+
+.leftIconsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  fill: #fff;
+}
+
+.image {
+  height: 15rem;
+  object-fit: cover;
+  width: 100%;
 }
 
 .detailsContainer {
-  @apply flex flex-[3] items-start flex-col gap-3;
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.header {
+  display: none;
+  border-bottom: 1px solid #e2e2e2;
+  width: 100%;
+  @media (min-width: 1024px) {
+    display: block;
+  }
+
+  img {
+    width: 110px;
+    height: 23px;
+  }
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: #006aff;
+  fill: #006aff;
+}
+
+.headerIconsContainer {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.propertyDetailsContainer {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+
+  .amenities {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .border {
+      border-right: 1px solid #e2e2e2;
+      padding: 0 0.5rem;
+    }
+
+    .largeFont {
+      font-size: 1.5rem /* 24px */;
+      line-height: 2rem /* 32px */;
+    }
+  }
+}
+
+.fontBold {
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.forSaleSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-right: 1px solid #e2e2e2;
+  padding-right: 0.75rem;
+
+  .circle {
+    background-color: #ff5a50;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+  }
+
+  font-weight: semibold;
+}
+
+.getQualifiedSection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: #006aff;
+}
+
+.blueCircle {
+  background-color: #006aff;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 50%;
+  padding: 0.125rem 0.5rem;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  height: 100%;
+  align-items: flex-start;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .primaryButton {
+    background-color: #006aff;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    flex: 2;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+  }
+
+  .outlineButton {
+    border: 1px solid #006aff;
+    width: 100%;
+    padding: 1.25rem 1rem;
+    flex: 1;
+    color: #006aff;
+    border-radius: 0.5rem;
+  }
+}
+
+.tabsContainer {
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+
+  @media (min-width: 740px) {
+    border-top: 1px solid #e2e2e2;
+  }
+
+  .activeTab {
+    color: #006aff;
+    border-bottom: 2px solid #006aff;
+  }
+
+  .inactiveTab {
+    flex: none;
+    cursor: pointer;
+    padding: 0.75rem;
+    flex-wrap: nowrap;
+
+    &:hover {
+      color: #006aff;
+      border-bottom: #006aff;
+    }
+  }
+}
+
+.utilitySection {
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.utilityCostContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .text {
+    font-weight: 600;
+    font-size: 1.25rem /* 20px */;
+    line-height: 1.75rem /* 28px */;
+
+    @media (min-width: 740px) {
+      font-size: 1.5rem /* 24px */;
+      line-height: 2rem /* 32px */;
+    }
+  }
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+
+  .table {
+    width: 100%;
+
+    .tableBody {
+      display: flex;
+      flex-direction: column;
+
+      .tableRow {
+        display: flex;
+        justify-content: space-between;
+
+        .tableData {
+          display: flex;
+          gap: 0.5rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.overviewContainer {
+  width: 100%;
+  gap: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #e2e2e2;
+
+  .overviewIconContainer {
+    display: flex;
+    gap: 0.5rem;
+    fill: #006aff;
+  }
+}
+
+.overviewDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+
+  .overviewDescriptionTitle {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .propertyDescriptionContainer {
+    overflow: visible;
+    height: fit-content;
+  }
+
+  .propertyDescriptionContainerHalf {
+    overflow: hidden;
+    max-height: 9rem;
+  }
+
+  .propertyDescription {
+    display: flex;
+    text-align: justify;
+    align-items: center;
+  }
+}
+
+.textButton {
+  color: #006aff;
+  text-align: left;
+}
+
+.fourierFlowContainer {
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.fourierFlowContainer p {
+  color: gray;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+
+  .label {
+    font-weight: bold;
+  }
+
+  .input {
+    border: 1px solid #e2e2e2;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+}
+
+.primaryText {
+  color: #006aff;
+}
+
+.fillPrimary {
+  fill: #006aff;
 }
 
 .iconsContainer {
-  @apply fixed flex w-full justify-between items-center;
-}
-
-.expense-list {
-  list-style-type: none;
-  padding: 0;
-}
-
-.expense-label {
-  font-weight: bold;
-  margin-right: 5px;
-}
-
-.expense-value {
-  font-weight: bold;
-}
-
-.emoji {
-  margin-left: 5px;
-  font-size: 18px;
+  position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }

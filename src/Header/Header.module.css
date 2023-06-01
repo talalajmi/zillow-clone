@@ -1,7 +1,20 @@
 .mobileHeader {
-  @apply lg:hidden flex justify-between items-center p-4 border-b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eaeaea;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
 }
 
 .mobileHeader .loginContainer {
-  @apply text-primary/50;
+  color: #006aff;
+}
+
+.logo {
+  width: 120px;
+  height: 25px;
 }

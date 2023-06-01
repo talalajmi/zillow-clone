@@ -1,6 +1,6 @@
+import { Zap } from "react-feather";
 import { useEffect, useState } from "react";
 import styles from "./PropertyDetails.module.css";
-import { Zap } from "react-feather";
 
 const tabs = ["Overview", "Utility", "Facts and Features"];
 
@@ -45,15 +45,14 @@ const PropertyDetails = () => {
   const OverviewTabContent = () => {
     return (
       <div id="Overview">
-        <div className="flex flex-col gap-3 border-b w-full pb-6">
-          <div className="flex gap-2">
+        <div className={styles.overviewContainer}>
+          <div className={styles.overviewIconContainer}>
             <svg
               viewBox="0 0 32 32"
               width={24}
               height={24}
               aria-hidden="true"
               focusable="false"
-              className="fill-primary"
             >
               <g stroke="none">
                 <path d="M24 2H8a2 2 0 00-2 2v24a2 2 0 002 2h16a2 2 0 002-2V4a2 2 0 00-2-2zm-9 26v-5h2v5zm9 0h-5v-6.5a.5.5 0 00-.5-.5h-5a.5.5 0 00-.5.5V28H8V4h16z"></path>
@@ -65,14 +64,13 @@ const PropertyDetails = () => {
             </svg>
             <p>Farm, single family residence</p>
           </div>
-          <div className="flex gap-2">
+          <div className={styles.overviewIconContainer}>
             <svg
               viewBox="0 0 32 32"
               aria-hidden="true"
               width={24}
               height={24}
               focusable="false"
-              className="fill-primary"
             >
               <title>Year Built</title>
               <g stroke="none">
@@ -87,14 +85,13 @@ const PropertyDetails = () => {
             </svg>
             <p>Built in 1999</p>
           </div>
-          <div className="flex gap-2">
+          <div className={styles.overviewIconContainer}>
             <svg
               viewBox="0 0 32 32"
               aria-hidden="true"
               focusable="false"
               width={24}
               height={24}
-              className="fill-primary"
             >
               <title>Heating</title>
               <g stroke="none">
@@ -104,14 +101,13 @@ const PropertyDetails = () => {
             </svg>
             <p>Central, propane, wood stove</p>
           </div>
-          <div className="flex gap-2">
+          <div className={styles.overviewIconContainer}>
             <svg
               viewBox="0 0 32 32"
               aria-hidden="true"
               focusable="false"
               width={24}
               height={24}
-              className="fill-primary"
             >
               <title>Cooling</title>
               <path
@@ -121,14 +117,13 @@ const PropertyDetails = () => {
             </svg>
             <p>Central air, ceiling fan(s), electric</p>
           </div>
-          <div className="flex gap-2">
+          <div className={styles.overviewIconContainer}>
             <svg
               viewBox="0 0 32 32"
               aria-hidden="true"
               focusable="false"
               width={24}
               height={24}
-              className="fill-primary"
             >
               <title>Parking</title>
               <g stroke="none">
@@ -138,14 +133,13 @@ const PropertyDetails = () => {
             </svg>
             <p>2 Carport spaces</p>
           </div>
-          <div className="flex gap-2">
+          <div className={styles.overviewIconContainer}>
             <svg
               viewBox="0 0 32 32"
               aria-hidden="true"
               focusable="false"
               width={24}
               height={24}
-              className="fill-primary"
             >
               <title>Lot</title>
               <path
@@ -155,14 +149,13 @@ const PropertyDetails = () => {
             </svg>
             <p>22 Acres</p>
           </div>
-          <div className="flex gap-2">
+          <div className={styles.overviewIconContainer}>
             <svg
               viewBox="0 0 32 32"
               aria-hidden="true"
               focusable="false"
               width={24}
               height={24}
-              className="fill-primary"
             >
               <title>Price/sqft</title>
               <g stroke="none">
@@ -172,14 +165,13 @@ const PropertyDetails = () => {
             </svg>
             <p>$1,287 price/sqft</p>
           </div>
-          <div className="flex gap-2">
+          <div className={styles.overviewIconContainer}>
             <svg
               viewBox="0 0 32 32"
               aria-hidden="true"
               focusable="false"
               width={24}
               height={24}
-              className="fill-primary"
             >
               <title>Buyers Agency Fee</title>
               <g stroke="none">
@@ -191,17 +183,17 @@ const PropertyDetails = () => {
           </div>
         </div>
         <div>
-          <div className="flex flex-col gap-2 mt-3">
-            <h4 className="font-semibold text-2xl">Overview</h4>
-            <div className="flex flex-col gap-1">
+          <div className={styles.overviewDescriptionContainer}>
+            <h4 className={styles.overviewDescriptionTitle}>Overview</h4>
+            <div className="flex flex-col">
               <div
                 className={`${
                   showFullText
-                    ? "overflow-visible h-fit"
-                    : "max-h-36 overflow-hidden"
+                    ? styles.propertyDescriptionContainer
+                    : styles.propertyDescriptionContainerHalf
                 }`}
               >
-                <p className="flex text-justify items-center">
+                <p className={styles.propertyDescription}>
                   Rare picturesque 22 developed acres in sought after location 7
                   minutes south of 380 in Princeton. Melt into the tranquility
                   of the country, with conveniences of the city close by.
@@ -222,12 +214,12 @@ const PropertyDetails = () => {
                 </p>
               </div>
               <button
-                className="text-start text-primary "
+                className={styles.textButton}
                 onClick={() => setShowFullText(!showFullText)}
               >
                 {showFullText ? "Show Less" : "Show More"}
               </button>
-              <div className="flex my-5">
+              <div className="flex my-4">
                 <p className="py-2 pr-4 border-r w-full text-start">
                   <span className="font-semibold">2 days</span> on Zillow
                 </p>
@@ -238,19 +230,17 @@ const PropertyDetails = () => {
                   <span className="font-semibold">9</span> saves
                 </p>
               </div>
-              <div className="flex flex-col gap-2">
-                <div className="flex flex-col">
-                  <p>Listed by:</p>
-                  <p>Anna Harris 0677598 972-381-2758</p>
-                  <p>Local Realty Agency</p>
-                  <p>William Harris 0676477</p>
-                  <p>Local Realty Agency</p>
-                </div>
-                <p>Source: NTREIS, MLS#: 20320667</p>
-                <div className="flex flex-col">
-                  <p>Zillow last checked: 11 hours ago</p>
-                  <p>Listing updated: May 18, 2023 at 11:10pm</p>
-                </div>
+              <div className="flex flex-col">
+                <p>Listed by:</p>
+                <p>Anna Harris 0677598 972-381-2758</p>
+                <p>Local Realty Agency</p>
+                <p>William Harris 0676477</p>
+                <p>Local Realty Agency</p>
+                <p style={{ margin: "0.5rem 0" }}>
+                  Source: NTREIS, MLS#: 20320667
+                </p>
+                <p>Zillow last checked: 11 hours ago</p>
+                <p>Listing updated: May 18, 2023 at 11:10pm</p>
               </div>
             </div>
           </div>
@@ -259,16 +249,21 @@ const PropertyDetails = () => {
     );
   };
 
+  const handleTabChange = (index) => {
+    setActiveTab(index);
+    document
+      .getElementById(tabs[index])
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className={styles.main}>
-      <div className="relative flex-[2]">
-        <div className="absolute md:hidden bg-gradient-to-b from-black/70 md:bg-none top-0 p-4 z-10 flex justify-between items-center w-full">
-          <div>
+      <div className={styles.imagesContainer}>
+        <div className={styles.imageIconsContainer}>
+          <div className={styles.arrowBack}>
             <svg
               viewBox="0 0 32 32"
               width={24}
               height={24}
-              className="fill-white rotate-90"
               aria-hidden="true"
               focusable="false"
             >
@@ -278,14 +273,13 @@ const PropertyDetails = () => {
               ></path>
             </svg>
           </div>
-          <div className="flex flex-row gap-5">
+          <div className={styles.leftIconsContainer}>
             <svg
               viewBox="0 0 32 32"
               aria-hidden="true"
               focusable="false"
               width={24}
               height={24}
-              className="fill-white"
             >
               <path
                 stroke="none"
@@ -293,7 +287,7 @@ const PropertyDetails = () => {
               ></path>
             </svg>
             <svg viewBox="0 0 23 18" width={24} height={24} focusable="false">
-              <g className="fill-white" fillRule="evenodd">
+              <g fillRule="evenodd">
                 <g transform="translate(0)" fillRule="nonzero">
                   <path d="m22.504 7.0047l-9.4663-6.7849c-0.2188-0.18177-0.53451-0.22356-0.79965-0.10586-0.26514 0.11771-0.42736 0.37168-0.41087 0.64327v3.4148c-2.9503 0.066134-5.77 1.1388-7.9168 3.0118-2.3605 2.2392-3.4984 5.3966-3.3895 9.5391 0.0061638 0.30779 0.2342 0.57373 0.55684 0.64938h0.18158c0.2629 2.775e-4 0.50471-0.13305 0.62947-0.34708 0.89579-1.5115 4.2005-6.2922 9.8174-6.2922h0.12105v3.2245l0.060526 0.44785 0.33895 0.15675c0.25053 0.11823 0.55234 0.092065 0.77474-0.067177l9.2242-6.6169 0.27842-0.25751v-0.61579zm-9.43 6.0571v-2.7431c4.845e-4 -0.35828-0.30312-0.65386-0.69-0.67177-5.3505-0.31349-8.8853 3.2021-10.604 5.4749 0.023449-2.6474 1.1158-5.1911 3.0626-7.132 2.0065-1.7327 4.6512-2.6935 7.3963-2.6871h0.14526c0.19332-1.3199e-4 0.37937-0.068163 0.52053-0.19033l0.21789-0.24632v-3.2021l7.9532 5.6989-8.0016 5.6989z"></path>
                 </g>
@@ -305,7 +299,6 @@ const PropertyDetails = () => {
               width={24}
               height={24}
               focusable="false"
-              className="fill-white"
             >
               <path
                 stroke="none"
@@ -318,7 +311,6 @@ const PropertyDetails = () => {
               focusable="false"
               aria-hidden="true"
               viewBox="0 0 32 32"
-              className="fill-white"
             >
               <g stroke="none">
                 <path d="M16,14a2,2,0,1,1-2,2,2,2,0,0,1,2-2m0-2a4,4,0,1,0,4,4,4,4,0,0,0-4-4Z"></path>
@@ -331,68 +323,64 @@ const PropertyDetails = () => {
         <img
           src="https://photos.zillowstatic.com/fp/43d82cc72829b785f6c0ccbdb0b09f61-cc_ft_1536.webp"
           alt="property-image"
-          className="h-60 object-cover w-full"
+          className={styles.image}
         />
       </div>
 
       <div className={styles.detailsContainer}>
-        <div className="hidden lg:block border-b w-full">
-          <div className="flex justify-between items-center p-4">
+        <div className={styles.header}>
+          <div className={styles.headerContent}>
             <img
               src="https://s.zillowstatic.com/pfs/static/z-logo-default.svg"
               alt="zillow-logo"
-              className="w-[110px] h-[23px]"
             />
-            <div className="flex gap-3">
-              <div className="flex gap-1 items-center">
+            <div className={styles.headerIconsContainer}>
+              <div className={styles.iconContainer}>
                 <svg
                   viewBox="0 0 32 32"
                   aria-hidden="true"
                   focusable="false"
                   width={20}
                   height={20}
-                  className="fill-primary"
                 >
                   <path
                     stroke="none"
                     d="M27.66 6.19a7.85 7.85 0 00-11 .13L16 7l-.65-.66a7.85 7.85 0 00-11-.13 8.23 8.23 0 00.09 11.59l.42.42L15.29 28.7a1 1 0 001.42 0l10.44-10.5.42-.42a8.23 8.23 0 00.09-11.59zm-1.42 10.06l-.52.52L16 26.55l-9.72-9.78-.52-.52A6.15 6.15 0 014 13.19a5.91 5.91 0 011.62-5.43 5.81 5.81 0 014.67-1.71 6 6 0 013.78 1.87l.5.5 1.08 1.08a.5.5 0 00.7 0l1.08-1.08.5-.5a6 6 0 013.78-1.87 5.81 5.81 0 014.67 1.71A5.91 5.91 0 0128 13.19a6.15 6.15 0 01-1.76 3.06z"
                   ></path>
                 </svg>
-                <p className="text-primary">Save</p>
+                <p>Save</p>
               </div>
-              <div className="flex gap-1 items-center">
+              <div className={styles.iconContainer}>
                 <svg
                   viewBox="0 0 23 18"
                   width={20}
                   height={20}
                   focusable="false"
-                  className="fill-primary"
                 >
-                  <g className="fill-primary" fillRule="evenodd">
+                  <g fillRule="evenodd">
                     <g transform="translate(0)" fillRule="nonzero">
                       <path d="m22.504 7.0047l-9.4663-6.7849c-0.2188-0.18177-0.53451-0.22356-0.79965-0.10586-0.26514 0.11771-0.42736 0.37168-0.41087 0.64327v3.4148c-2.9503 0.066134-5.77 1.1388-7.9168 3.0118-2.3605 2.2392-3.4984 5.3966-3.3895 9.5391 0.0061638 0.30779 0.2342 0.57373 0.55684 0.64938h0.18158c0.2629 2.775e-4 0.50471-0.13305 0.62947-0.34708 0.89579-1.5115 4.2005-6.2922 9.8174-6.2922h0.12105v3.2245l0.060526 0.44785 0.33895 0.15675c0.25053 0.11823 0.55234 0.092065 0.77474-0.067177l9.2242-6.6169 0.27842-0.25751v-0.61579zm-9.43 6.0571v-2.7431c4.845e-4 -0.35828-0.30312-0.65386-0.69-0.67177-5.3505-0.31349-8.8853 3.2021-10.604 5.4749 0.023449-2.6474 1.1158-5.1911 3.0626-7.132 2.0065-1.7327 4.6512-2.6935 7.3963-2.6871h0.14526c0.19332-1.3199e-4 0.37937-0.068163 0.52053-0.19033l0.21789-0.24632v-3.2021l7.9532 5.6989-8.0016 5.6989z"></path>
                     </g>
                   </g>
                 </svg>
-                <p className="flex gap-1 items-center text-primary">Share</p>
+                <p>Share</p>
               </div>
-              <div className="flex gap-1 items-center">
+              <div className={styles.iconContainer}>
                 <svg
                   viewBox="0 0 32 32"
                   aria-hidden="true"
                   width={20}
                   height={20}
                   focusable="false"
-                  className="fill-primary"
                 >
                   <path
                     stroke="none"
                     d="M16 2a14 14 0 1014 14A14 14 0 0016 2zM6.85 23.74A12 12 0 0123.74 6.85L6.85 23.74zM16 28a11.89 11.89 0 01-7.74-2.85L25.15 8.26A12 12 0 0116 28z"
                   ></path>
                 </svg>
-                <p className="flex gap-1 items-center text-primary">Hide</p>
+                <p>Hide</p>
               </div>
-              <div className="flex gap-1 items-center">
+              <div className={styles.iconContainer}>
                 <svg
                   width={20}
                   height={20}
@@ -407,183 +395,145 @@ const PropertyDetails = () => {
                     <path d="M26,14a2,2,0,1,1-2,2,2,2,0,0,1,2-2m0-2a4,4,0,1,0,4,4,4,4,0,0,0-4-4Z"></path>
                   </g>
                 </svg>
-                <p className="flex gap-1 items-center text-primary">More</p>
+                <p>More</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="px-4 flex flex-col items-start gap-3">
-          <div className="flex items-center gap-3">
-            <p className="font-bold text-2xl">$2,000,000</p>
-            <div className="border-r px-2">
-              <span className="font-bold">3</span>
+        <div className={styles.propertyDetailsContainer}>
+          <div className={styles.amenities}>
+            <p className={`${styles.largeFont} ${styles.fontBold}`}>
+              $2,000,000
+            </p>
+            <div className={styles.border}>
+              <span className={styles.fontBold}>3</span>
               bd
             </div>
-            <div className="border-r px-2">
-              <span className="font-bold">3</span>
+            <div className={styles.border}>
+              <span className={styles.fontBold}>3</span>
               ba
             </div>
             <div>
-              <span className="font-bold">1,554</span>
+              <span className={styles.fontBold}>1,554</span>
               sqft
             </div>
           </div>
           <p>3556 County Road 444, Princeton, TX 75407</p>
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 border-r pr-3">
-              <div className="bg-[#ff5a50] w-3 h-3 rounded-full" />
-              <p className="font-semibold">For Sale</p>
+          <div className={styles.row}>
+            <div className={styles.forSaleSection}>
+              <div className={styles.circle} />
+              <p>For Sale</p>
             </div>
             <p>Zestimate®: $1,919,999</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className={styles.row}>
             <p>Est. payment: $14,134/mo</p>
-            <div className="flex items-center gap-2 font-semibold text-primary">
-              <div className="bg-primary rounded-full w-fit h-fit py-0.5 px-2 text-white text-sm">
-                $
-              </div>
+            <div className={styles.getQualifiedSection}>
+              <div className={styles.blueCircle}>$</div>
               Get pre-qualified
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row sm:items-center items-start gap-3 w-full h-full">
-            <button className="bg-primary rounded-lg w-full text-white py-2 px-4 flex-col flex-[2] items-center">
-              <p className="font-semibold">Request a Tour</p>
+          <div className={styles.buttonsContainer}>
+            <button className={styles.primaryButton}>
+              <p className={styles.fontBold}>Request a Tour</p>
               <span>as early as today at 11:00 am</span>
             </button>
-            <button className="border border-primary w-full rounded-lg text-primary py-5 px-4 flex-1">
-              Contact Agent
-            </button>
+            <button className={styles.outlineButton}>Contact Agent</button>
           </div>
-          <div className="md:border-t border-b flex justify-center items-center gap-3 w-full ">
+          <div className={styles.tabsContainer}>
             {tabs.map((tab, i) => (
               <p
                 key={i}
-                className={`font-light ${
-                  activeTab === i && "border-b-primary text-primary border-b-2"
-                } p-2 transition-all hover:border-primary hover:text-primary cursor-pointer whitespace-nowrap flex-none`}
-                onClick={() => {
-                  setActiveTab(i);
-                  document
-                    .getElementById(tab)
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
+                className={`${activeTab === i && styles.activeTab} ${
+                  styles.inactiveTab
+                }`}
+                onClick={() => handleTabChange(i)}
               >
                 {tab}
               </p>
             ))}
           </div>
           <OverviewTabContent />
-          <div id="Utility" className="mb-5 w-full">
-            <div className="flex flex-col gap-3">
-              <div className="flex justify-between">
-                <p className="font-semibold text-2xl">Utility Cost Analysis</p>
-                <p className="font-semibold text-2xl">$ {total.toFixed(2)}</p>
+          <div id="Utility" className={styles.utilitySection}>
+            <div className={styles.col}>
+              <div className={styles.utilityCostContainer}>
+                <p className={styles.text}>Utility Cost Analysis</p>
+                <p className={styles.text}>$ {total.toFixed(2)}</p>
               </div>
-              <div className="flex flex-col gap-2">
-                <table className="expense-table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span className="emoji">💡</span>
+              <div className={styles.tableContainer}>
+                <table className={styles.table}>
+                  <tbody className={styles.tableBody}>
+                    <tr className={styles.tableRow}>
+                      <td className={styles.tableData}>
+                        <span>💡</span>
+                        <p>Electricity</p>
                       </td>
                       <td>
-                        <strong>Electricity</strong>
-                      </td>
-                      <td>
-                        <span className="expense-value">
-                          {utilityCost.toFixed(2)} $
-                        </span>
+                        <span>{utilityCost.toFixed(2)} $</span>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <span className="emoji">💧</span>
+                    <tr className={styles.tableRow}>
+                      <td className={styles.tableData}>
+                        <span>💧</span>
+                        <p>Water</p>
                       </td>
                       <td>
-                        <strong>Water</strong>
-                      </td>
-                      <td>
-                        <span className="expense-value">32.72 $</span>
+                        <span>32.72 $</span>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <span className="emoji">🔥</span>
+                    <tr className={styles.tableRow}>
+                      <td className={styles.tableData}>
+                        <span>🔥</span>
+                        <p>Gas</p>
                       </td>
                       <td>
-                        <strong>Gas</strong>
-                      </td>
-                      <td>
-                        <span className="expense-value">55.17 $</span>
+                        <span>55.17 $</span>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <span className="emoji">🚽</span>
+                    <tr className={styles.tableRow}>
+                      <td className={styles.tableData}>
+                        <span>🚽</span>
+                        <p>Sewage</p>
                       </td>
                       <td>
-                        <strong>Sewage</strong>
-                      </td>
-                      <td>
-                        <span className="expense-value">21.46 $</span>
+                        <span>21.46 $</span>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <span className="emoji">🌍</span>
+                    <tr className={styles.tableRow}>
+                      <td className={styles.tableData}>
+                        <span>🌍</span>
+                        <p>Carbon Footprint</p>
                       </td>
                       <td>
-                        <strong>Carbon Footprint</strong>
-                      </td>
-                      <td>
-                        <span className="expense-value">51.24</span> metric tons
-                        CO2e/yr
+                        <span>51.24</span> metric tons CO2e/yr
                       </td>
                     </tr>
                   </tbody>
                 </table>
-                <div className="flex gap-2 items-center">
-                  <Zap color="grey" size={18} />
-                  <p className="text-gray-500 text-sm">
-                    Powered by Fourier Flow
-                  </p>
+                <div className={styles.fourierFlowContainer}>
+                  <Zap color="gray" size={18} />
+                  <p>Powered by Fourier Flow</p>
                 </div>
               </div>
-              <div className="flex flex-col lg:flex-row gap-3 ">
-                <div className="flex flex-col w-full">
-                  <label className="font-semibold">No. of Rooms</label>
-                  <input
-                    className="border rounded-md p-2 w-full"
-                    disabled
-                    value={beds}
-                  />
+              <div className={styles.inputsContainer}>
+                <div className={styles.inputContainer}>
+                  <label className={styles.label}>No. of Rooms</label>
+                  <input className={styles.input} disabled value={beds} />
                 </div>
-                <div className="flex flex-col w-full">
-                  <label className="font-semibold">Sqft</label>
-                  <input
-                    className="border rounded-md p-2 w-full"
-                    disabled
-                    value={sqft}
-                  />
+                <div className={styles.inputContainer}>
+                  <label className={styles.label}>Sqft</label>
+                  <input className={styles.input} disabled value={sqft} />
                 </div>
               </div>
             </div>
-            <div className="flex flex-col lg:flex-row gap-3 mt-3 dm:mt-0">
-              <div className="flex flex-col w-full">
-                <label className="font-semibold">Zip Code</label>
-                <input
-                  className="border rounded-md p-2 w-full"
-                  disabled
-                  value={zipCode}
-                />
+            <div className={styles.inputsContainer}>
+              <div className={styles.inputContainer}>
+                <label className={styles.label}>Zip Code</label>
+                <input className={styles.input} disabled value={zipCode} />
               </div>
-              <div className="flex flex-col w-full">
-                <label className="font-semibold">Year</label>
-                <input
-                  className="border rounded-md p-2 w-full"
-                  disabled
-                  value={year}
-                />
+              <div className={styles.inputContainer}>
+                <label className={styles.label}>Year</label>
+                <input className={styles.input} disabled value={year} />
               </div>
             </div>
           </div>
